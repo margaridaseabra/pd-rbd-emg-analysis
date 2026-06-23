@@ -1,0 +1,15 @@
+# Copy to config/paths_local.yaml and edit for your machine.
+# Do not commit paths_local.yaml.
+
+project_root: /path/to/PD-Katia
+prepared_data_root: /path/to/PD-Katia/Data/prepared_data
+manifest_root: /path/to/PD-Katia/Data/prepared_data/manifests
+video_root: /path/to/PD-Katia/Data
+
+# Main event table used by the QC app.
+events_csv: /path/to/EMG_episodes_NREMbaseline_qc_ready.csv
+criteria_csv: /path/to/NREMbaseline_episode_category_criteria.csv
+qc_annotations_csv: /path/to/interactive_QC_annotations.csv
+
+# Optional manifest for segment-level REM denominators.
+eeg_application_manifest: /path/to/WT_PD_week2_week21_EEGonly_finalWTref_application.csv

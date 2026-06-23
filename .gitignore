@@ -1,0 +1,53 @@
+# macOS / Python
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# environments
+.env
+.venv/
+venv/
+*.egg-info/
+
+# raw / processed data - keep outside git
+data/*
+!data/.gitkeep
+*.edf
+*.EDF
+*.avi
+*.mp4
+*.mov
+*.mkv
+*.mat
+*.bin
+*.exp
+*.npz
+*.h5
+*.hdf5
+
+# generated outputs / cache
+outputs/*
+!outputs/.gitkeep
+plots/
+*_plots/
+*_cached_plots/
+*_QC_plots/
+EMG_burst_QC_plots/
+EMG_burst_QC_cached_plots/
+EMG_burst_QC_video_clips/
+PD21_custom_period_plots*/
+
+# Streamlit / local app state
+.streamlit/secrets.toml
+interactive_QC_annotations*.csv
+live_mouse_level_EMG_REM_metrics*.csv
+events_with_live_QC_status*.csv
+
+# backup/scratch files
+*backup*
+*.bak*
+*_before_*.py
+*_old.py
+*_copy.py
+patch_*.py

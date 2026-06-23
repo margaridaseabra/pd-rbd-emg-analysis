@@ -1,0 +1,10 @@
+Clean repo created from uploaded zip.
+
+Source: /mnt/data/pd_katia_extracted/pd-katia
+Destination: /mnt/data/pd-rbd-emg-analysis-clean
+
+Copied files: 49
+Not copied/generated/backups/cache: 293
+Missing requested core files: 0
+
+The cleaned repo keeps current paths mostly intact to avoid breaking the Streamlit app immediately.

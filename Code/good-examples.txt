@@ -1,0 +1,56 @@
+python "/Users/margaridaseabra/somnotate/example_pipeline/06_compare_state_annotations.py" \
+  "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/wt_week2_train_512hz_ready_lenfixed.csv" \
+  --only 0
+interesting example from 13870 to 13920; 12200 to 12260; 22740 to 22790; 33020 to 33060
+
+
+python "/Users/margaridaseabra/somnotate/example_pipeline/06_compare_state_annotations.py" \
+  "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/final_WT_model_inference/PD21_GUI/PD21_finalWT_for_GUI.csv" \
+  --only 0
+
+Make spectrogram of a specific time
+python plot_PD21_custom_period.py --list
+python plot_PD21_custom_period.py \
+  --row-index 0 \
+  --start-min 586 \
+  --end-min 588
+python plot_PD21_custom_period.py \
+  --mouse-id 5 \
+  --segment-id 2 \
+  --start-min 573 \
+  --end-min 574
+python plot_PD21_custom_period.py \
+  --recording-contains "Mouse10" \
+  --segment-id 1 \
+  --start-min 120 \
+  --end-min 128
+open "$HOME/Desktop/PD21_custom_period_plots"
+
+
+%% For EEG only 
+# GUI: manual vs EEG-only model
+python "/Users/margaridaseabra/somnotate/example_pipeline/06_compare_state_annotations.py" \
+  "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/EEG_only/PD21_EEGonly_for_GUI.csv" \
+  --only 13
+
+# Make EEG-only spectrogram/probability plot of a specific time
+python plot_PD21_custom_period_EEGonly.py --list
+ahahahha
+python plot_PD21_custom_period_EEGonly.py \
+  --row-index 13 \
+  --start-min 370 \
+  --end-min 372
+
+python plot_PD21_custom_period_EEGonly.py \
+  --mouse-id 5 \
+  --segment-id 2 \
+  --start-min 573 \
+  --end-min 574
+
+python plot_PD21_custom_period_EEGonly.py \
+  --recording-contains "Mouse10" \
+  --segment-id 1 \
+  --start-min 120 \
+  --end-min 128
+
+open "$HOME/Desktop/PD21_custom_period_plots_EEGonly"

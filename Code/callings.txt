@@ -1,0 +1,31 @@
+Call prepare_one_recording.py
+cd /Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Code
+python prepare_one_recording.py \
+  --exp "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/20240426_LC_PD_21wk_Mouse10/20240426_LC_PD_21wk_Mouse10_2024-04-26_08-43-55-742.exp" \
+  --data-root "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/20240426_LC_PD_21wk_Mouse10/" \
+  --out-root "/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data"
+
+Call test_loader
+cd /Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Code
+python test_loader.py
+
+Call preprocess
+python /Users/margaridaseabra/somnotate/example_pipeline/01_preprocess_signals.py /Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/LC_PD_wk2_M10_default/somnotate_manifest.csv --only 1 --show
+
+
+python /Users/margaridaseabra/somnotate/example_pipeline/01_preprocess_signals.py \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/wt_week2_all.csv
+
+Call test state annotation
+python /Users/margaridaseabra/somnotate/example_pipeline/02_test_state_annotation.py \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/LC_PD_wk2_M10_default/somnotate_manifest.csv
+
+python /Users/margaridaseabra/somnotate/example_pipeline/03_train_state_annotation.py \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/wt_week2_train.csv \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/models/wt_week2_baseline.pickle
+
+Probabiities
+python /Users/margaridaseabra/somnotate/example_pipeline/07_compute_state_probabilities.py \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/manifests/wt_week2_train.csv \
+/Users/margaridaseabra/Library/CloudStorage/OneDrive-UniversityofCopenhagen/PD-Katia/Data/prepared_data/models/wt_week2_baseline.pickle \
+--show
