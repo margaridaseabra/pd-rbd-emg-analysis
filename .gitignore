@@ -51,3 +51,5 @@ events_with_live_QC_status*.csv
 *_old.py
 *_copy.py
 patch_*.py
+data/manifests/*local*.csv
+config/paths_local.yaml
