@@ -1,0 +1,18 @@
+# Copy this file to configs/all_weeks_paths.local.yaml
+# The .local.yaml file should NOT be committed.
+
+event_table: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/qc_ready/EMG_episodes_NREMbaseline_all_weeks_qc_ready.csv"
+
+criteria_table: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/qc_ready/NREMbaseline_episode_category_criteria.csv"
+
+old_eegonly_manifest: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/manifests/WT_PD_week2_week21_EEGonly_finalWTref_application_paths_fixed.csv"
+
+new_eegonly_manifest: "data/manifests/new_weeks_somnotate_EEGonly_local_all_compatible.csv"
+
+output_root: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/presentation_ready_outputs"
+
+morphology_table: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/morphology/all_weeks_emg_morphology_features_with_clusters.csv"
+
+spindle_event_table: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/spindles/all_weeks_spindle_events.csv"
+
+spindle_mouse_week_metrics: "/Volumes/T7/Margarida/RBD-KatiasData/processed_all_weeks/spindles/all_weeks_spindle_mouse_week_metrics.csv"

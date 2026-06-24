@@ -54,3 +54,14 @@ patch_*.py
 data/manifests/*local*.csv
 config/paths_local.yaml
 data/manifests/*local*.csv
+
+# Local analysis configs
+configs/*.local.yaml
+
+# Local/generated data
+data/manifests/*local*.csv
+data/manifests/*_paths_fixed.csv
+outputs/
+presentation_ready_outputs/
+*.bak
+*_backup_*.csv
