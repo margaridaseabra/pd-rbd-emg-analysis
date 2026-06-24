@@ -102,7 +102,7 @@ def make_baseline_change_table(df, metrics, baseline_week=2, exclude_weeks=None)
             mouse_id = row["mouse_id"]
             week = int(row["week"])
 
-            if week == baseline_week or week in exclude_weeks:
+            if week in exclude_weeks:
                 continue
 
             if mouse_id not in base.index:
