@@ -3738,7 +3738,20 @@ render_unsupervised_cluster_qc_distribution(filtered)
 
 # Optional QC viewer for detected spindle examples.
 if render_spindle_qc_plot_viewer is not None:
-    render_spindle_qc_plot_viewer(spindle_qc_index_path)
+    load_spindle_qc_plots = st.checkbox(
+        "Load spindle QC plots",
+        value=False,
+        help="Off by default because spindle QC plot indices can be slow to load from OneDrive/external drives."
+    )
+
+    if load_spindle_qc_plots:
+        try:
+            render_spindle_qc_plot_viewer(spindle_qc_index_path)
+        except Exception as exc:
+            st.warning(f"Could not load spindle QC plots: {exc}")
+    else:
+        st.info("Spindle QC plots are not loaded. Turn on 'Load spindle QC plots' if needed.")
+
 elif SPINDLE_IMPORT_ERROR:
     with st.expander("Spindle detection QC plots", expanded=False):
         st.warning("Could not load spindle_app_module.py.")
