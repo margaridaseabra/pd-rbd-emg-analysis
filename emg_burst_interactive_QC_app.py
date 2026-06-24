@@ -3954,7 +3954,21 @@ st.dataframe(pd.DataFrame(row[meta_cols]).T, use_container_width=True)
 
 # Optional spindle context around the selected EMG/RBD candidate event.
 if render_spindle_context_for_event is not None:
-    render_spindle_context_for_event(spindle_events_path, row, window_sec=60)
+    load_spindle_context = st.checkbox(
+        "Load spindle context for selected event",
+        value=False,
+        key="load_spindle_context_for_selected_event",
+        help="Off by default because spindle event tables can be slow to load from OneDrive/external drives."
+    )
+
+    if load_spindle_context:
+        try:
+            render_spindle_context_for_event(spindle_events_path, row, window_sec=60)
+        except Exception as exc:
+            st.warning(f"Could not load spindle context for this event: {exc}")
+    else:
+        st.info("Spindle context is not loaded. Turn on 'Load spindle context for selected event' if needed.")
+
 
 
 
