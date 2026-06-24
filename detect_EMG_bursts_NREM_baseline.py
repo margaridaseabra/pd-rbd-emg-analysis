@@ -484,10 +484,19 @@ def main():
     parser.add_argument("--only-mouse", type=int, default=None)
     parser.add_argument("--only-group", type=str, default="")
     parser.add_argument("--only-week", type=int, default=None)
+    parser.add_argument("--eeg-manifest", type=Path, default=EEG_APP,
+                        help="EEG-only Somnotate manifest CSV.")
+    parser.add_argument("--full-manifest", type=Path, default=FULL_APP,
+                        help="FULL EEG+EMG Somnotate manifest CSV.")
+    parser.add_argument("--out-dir", type=Path, default=OUT_DIR,
+                        help="Output directory for EMG detection results.")
     args = parser.parse_args()
 
-    eeg = pd.read_csv(EEG_APP)
-    full = pd.read_csv(FULL_APP)
+    globals()["OUT_DIR"] = Path(args.out_dir)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    eeg = pd.read_csv(args.eeg_manifest)
+    full = pd.read_csv(args.full_manifest)
 
     keys = ["recording_name", "group", "week", "mouse_id", "segment_id"]
 
